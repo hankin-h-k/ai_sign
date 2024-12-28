@@ -22,7 +22,7 @@ func CreateFile(dataJson string, fileConfig *Config.FileConfig) []byte {
 }
 
 // 添加签署方，入参为数组
-func AddSigner(dataJson string) []byte {
+func AddSignerJson(dataJson string) []byte {
 	apiUrl := "contract/addSigner"
 	log.Println("添加签署方")
 	response, err := httpUtils.SendRequest2(apiUrl, dataJson, nil)
@@ -82,7 +82,7 @@ func CreateContract(req *Config.CreateContractRequest) (*Config.CreateContractRe
 }
 
 // 添加签署方
-func AddSignerV2(req []*Config.AddSignerRequest) (*Config.AddSignerResponse, error) {
+func AddSigner(req []*Config.AddSignerRequest) (*Config.AddSignerResponse, error) {
 	log.Println("添加签署方")
 	var dataJson string
 	if data, err := json.Marshal(req); err == nil {

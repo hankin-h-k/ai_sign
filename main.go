@@ -315,7 +315,7 @@ func createFile() {
 	if data, err := json.Marshal(addSignerConfigList); err == nil {
 		addSignerConfigJson = string(data)
 	}
-	Service.AddSigner(addSignerConfigJson)
+	Service.AddSignerJson(addSignerConfigJson)
 }
 
 func readFile(file string) string {
