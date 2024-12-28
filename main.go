@@ -23,8 +23,135 @@ func main() {
 	)
 	Service.InitService(host, appId, privateKey)
 
+	// createFile()
+
+	// personalAccount := Config.CreatePersonalAccountRequest{}
+	// personalAccount.Account = "local_6"
+	// personalAccount.Name = "Hankin"
+	// personalAccount.IdCard = "511112200107212811"
+	// res, err := Service.AddPersonalUser(&personalAccount)
+	// if err != nil {
+	// 	log.Println(err.Error())
+	// }
+	// if res.Code != 100000 {
+	// 	log.Println(res.Msg)
+	// } else {
+	// 	log.Println(res.Data)
+	// }
+
+	// var req Config.QueryPersonalAccountRequest
+	// // req.Account = "local_1"
+	// res, err := Service.QueryPersonalUser(&req)
+	// if err != nil {
+	// 	log.Println(err.Error())
+	// }
+	// var req Config.UpdatePersonalAccountRequest
+	// req.Account = "local_1"
+	// req.Name = "Hankin1"
+	// req.IdentifyType = 2
+	// req.Mobile = "15872844805"
+
+	// res, err := Service.UpdatePersonalUser(&req)
+
+	// var req Config.DeletePersonalAccountRequest
+	// req.Account = "local_5"
+	// res, err := Service.DeletePersonalUser(&req)
+
+	// var req Config.QueryFileInfoRequest
+	// req.FileId = "testContractNo1735282333"
+	// res, err := Service.QueryFileInfo(&req)
+
+	// var contractNo = "testContractNo" + strconv.Itoa(int(time.Now().Unix()))
+	// var req Config.CreateContractRequest
+	// req.ContractNo = contractNo
+	// req.ContractName = "合同" + time.Now().Format(time.DateTime)
+	// req.ContractNo = contractNo
+	// req.ValidityTime = 30
+	// req.SignOrder = 1
+	// var template1 Config.Templates
+	// template1.TemplateNo = "TN79662B1B21B64FB7AA91D7051860EB23"
+	// template1.FillData = make(map[string]string)
+	// template1.FillData["idcard"] = "511112200107212811"
+	// template1.FillData["name"] = "Hankin"
+	// template1.FillData["address"] = "广东深圳"
+
+	// pic1 := readFile("https://image.fulllinkai.com/202309/15/99dc4bf7859476aabeeaa83f6fa4a253.png")
+	// var componentData1 = map[string]interface{}{}
+	// componentData1["type"] = 11
+	// componentData1["keyword"] = "card_face"
+	// componentData1["imageBase64"] = pic1
+
+	// var componentData2 = map[string]interface{}{}
+	// componentData2["type"] = 11
+	// componentData2["keyword"] = "card_emblem"
+	// pic2 := readFile("https://images.health.ufutx.com/202412/17/9e81af2c8c244e4c3e71b6b2650db24e.jpeg")
+	// componentData2["imageBase64"] = pic2
+	// template1.ComponentData = append(template1.ComponentData, componentData1, componentData2)
+
+	// req.Templates = append(req.Templates, template1)
+	// req.ReadSeconds = 30
+	// req.ReadType = 1
+	// req.NeedAgree = 1
+	// req.NotifyUrl = "https://health.ufutx.com"
+
+	// _, err := Service.CreateContract(&req)
+	// if err != nil {
+	// 	log.Println(err.Error())
+	// }
+
+	// // if res.Code != 100000 {
+	// // 	log.Println(res.Msg)
+	// // } else {
+	// // 	log.Println(res.Data)
+	// // }
+
+	// var signReq Config.AddSignerRequest
+	// signReq.ContractNo = contractNo
+	// signReq.Account = "local_1"
+	// signReq.SignType = 3
+	// signReq.ValidateType = 7
+	// var signStrategy Config.SignStrategy
+	// signStrategy.AttachNo = 1
+	// signStrategy.LocationMode = 4
+	// signStrategy.SignKey = "甲方"
+	// signStrategy.SignPage = 7
+
+	// signReq.SignStrategyList = append(signReq.SignStrategyList, signStrategy)
+
+	// var signReq2 Config.AddSignerRequest
+	// signReq2.ContractNo = contractNo
+	// signReq2.Account = "测试 Account"
+	// signReq2.SignType = 3
+	// signReq2.ValidateType = 1
+	// var signStrategy2 Config.SignStrategy
+	// signStrategy2.AttachNo = 1
+	// signStrategy2.LocationMode = 4
+	// signStrategy2.SignKey = "乙方"
+	// signReq2.SignStrategyList = append(signReq2.SignStrategyList, signStrategy2)
+
+	// var signReqList []*Config.AddSignerRequest
+	// signReqList = append(signReqList, &signReq)
+	// _, err = Service.AddSignerV2(signReqList)
+	// if err != nil {
+	// 	log.Println(err.Error())
+	// }
+
+	// var req1 Config.PreviewContractRequest
+	// req1.ContractNo = contractNo
+	// req1.Account = "local_1"
+	// var signStrategy Config.SignStrategy
+	// signStrategy.AttachNo = 1
+	// signStrategy.LocationMode = 4
+	// signStrategy.SignKey = "甲方"
+	// signStrategy.SignPage = 7
+	// req1.SignStrategyList = append(req1.SignStrategyList, signStrategy)
+
+	// var list []*Config.PreviewContractRequest
+	// list = append(list, &req1)
+	// Service.PreviewContract(list)
+
 	// 创建用户-start
-	// var createPersonal Config.CreatePersonalAccountConfig
+	// var createPersonal Config.CreatePersonalAccountRequest
 	// createPersonal.Account = "local_1"
 	// //createPersonal.SerialNo = "***" // 实名认证流水号（若您希望不传此值，由您自行完成认证。可登录开放平台【应用配置】内设置）
 	// createPersonal.Name = "黄济"
@@ -39,7 +166,7 @@ func main() {
 	// CreatePsnByThirdData := Utils.BytetoJson(initResult)["data"]
 	// // account := CreatePsnByThirdData.(map[string]interface{})["account"].(string)
 	// fmt.Println(CreatePsnByThirdData)
-	// // 创建用户-end
+	// 创建用户-end
 
 	// 查询用户信息-start
 	// var queryUserInfo Config.QueryPersonalAccountConfig
@@ -53,6 +180,38 @@ func main() {
 	// fmt.Println(CreatePsnByThirdData)
 	// 查询用户信息 - end
 
+	//添加签署方-end
+
+	// var req Config.DownloadContractRequest
+	// req.ContractNo = "testContractNo1735357438"
+	// res, _ := Service.DownloadContract(&req)
+	// Utils.SaveFileByBase64(res.Data.Data, "D:\\www\\test.pdf")
+
+	// var req Config.WithdrawContractRequest
+	// req.ContractNo = "testContractNo1735357438"
+	// Service.WithdrawContract(&req)
+
+	////下载合同-start
+	// var downloadFileConfig Config.DownloadFileConfig
+	// downloadFileConfig.ContractNo = contractNo
+	// var downloadFileConfigJson string
+	// if data, err := json.Marshal(downloadFileConfig); err == nil {
+	// 	downloadFileConfigJson = string(data)
+	// }
+	// var initResult []byte = Service.DownloadFile(downloadFileConfigJson)
+	// CreatePsnByThirdData := Utils.BytetoJson(initResult)["data"]
+	// base64String := CreatePsnByThirdData.(map[string]interface{})["data"].(string)
+	// Utils.SaveFileByBase64(base64String, "D:\\临时文件\\test.pdf")
+	//// 下载合同-end
+
+	// var req Config.DelayContractRequest
+	// req.ContractNo = "testContractNo1735357438"
+	// req.ValidityDate = "2025-12-30"
+	// Service.DelayContract(&req)
+
+}
+
+func createFile() {
 	//创建待签署文件(模板)-start
 
 	var contractNo = "testContractNo" + strconv.Itoa(int(time.Now().Unix()))
@@ -117,7 +276,7 @@ func main() {
 	addSignerConfig.SignType = 3     // 签约方式：2：无感知签约（需要开通权限） 3：有感知签约
 	addSignerConfig.ValidateType = 1 // 签署方式指定 1：短信验证码签约
 
-	// 定位方式 4: 模板坐标签章
+	// // 定位方式 4: 模板坐标签章
 	var signStrategy Config.SignStrategy
 	signStrategy.AttachNo = 1
 	signStrategy.LocationMode = 4
@@ -157,20 +316,6 @@ func main() {
 		addSignerConfigJson = string(data)
 	}
 	Service.AddSigner(addSignerConfigJson)
-	//添加签署方-end
-
-	////下载合同-start
-	// var downloadFileConfig Config.DownloadFileConfig
-	// downloadFileConfig.ContractNo = contractNo
-	// var downloadFileConfigJson string
-	// if data, err := json.Marshal(downloadFileConfig); err == nil {
-	// 	downloadFileConfigJson = string(data)
-	// }
-	// var initResult []byte = Service.DownloadFile(downloadFileConfigJson)
-	// CreatePsnByThirdData := Utils.BytetoJson(initResult)["data"]
-	// base64String := CreatePsnByThirdData.(map[string]interface{})["data"].(string)
-	// Utils.SaveFileByBase64(base64String, "D:\\临时文件\\test.pdf")
-	//// 下载合同-end
 }
 
 func readFile(file string) string {
