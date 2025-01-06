@@ -81,6 +81,7 @@ type CreateContractRequest struct {
 	ContractNo           string      `json:"contractNo,omitempty"`
 	ContractName         string      `json:"contractName,omitempty"`
 	ValidityTime         int         `json:"validityTime,omitempty"`
+	ValidityDate         string      `json:"validityDate,omitempty"`
 	SignOrder            int         `json:"signOrder,omitempty"`
 	FileIds              []string    `json:"fileIds,omitempty"`
 	ContractFiles        [][]byte    `json:"contractFiles,omitempty"`
