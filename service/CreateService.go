@@ -208,6 +208,25 @@ func WithdrawContract(req *Config.WithdrawContractRequest) (*Config.WithdrawCont
 	return &resp, nil
 }
 
+// 作废合同
+// 撤销合同
+func CancellationContract(req *Config.CancellationContractRequest) (*Config.CancellationContractResponse, error) {
+	log.Println("合同作废")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "contract/cancellation"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.CancellationContractResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
 // 延长合同
 func DelayContract(req *Config.DelayContractRequest) (*Config.DelayContractResponse, error) {
 	log.Println("延长签署过期时间")

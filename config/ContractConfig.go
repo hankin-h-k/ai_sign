@@ -281,6 +281,23 @@ type WithdrawContractResponse struct {
 	BaseResponse
 }
 
+type CancellationContractRequest struct {
+	ContractNo   string `json:"contractNo,omitempty"`
+	ValidityTime int    `json:"validityTime,omitempty"`
+}
+
+type CancellationContractData struct {
+	ContractNo   string   `json:"contractNo,omitempty"`
+	ContractName string   `json:"contractName,omitempty"`
+	ValidityTime int      `json:"validityTime,omitempty"`
+	SignUser     SignUser `json:"signUser,omitempty"`
+}
+
+type CancellationContractResponse struct {
+	BaseResponse
+	Data CancellationContractData `json:"data"`
+}
+
 type DelayContractRequest struct {
 	ContractNo   string `json:"contractNo,omitempty"`
 	ValidityDate string `json:"validityDate,omitempty"`
