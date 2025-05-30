@@ -103,3 +103,57 @@ func DeletePersonalUser(req *Config.DeletePersonalAccountRequest) (*Config.Delet
 	json.Unmarshal(response, &resp)
 	return &resp, nil
 }
+
+// 创建企业账号2.0
+func AddEnterpriseUser(req *Config.CreateEnterpriseAccountRequest) (*Config.CreateEnterpriseAccountResponse, error) {
+	log.Println("创建企业账号--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "v2/user/addEnterpriseUser"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.CreateEnterpriseAccountResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
+// 查询企业账号2.0
+func QueryEnterpriseUser(req *Config.QueryEnterpriseAccountRequest) (*Config.QueryEnterpriseAccountResponse, error) {
+	log.Println("查询企业账号--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "user/getCompUser"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.QueryEnterpriseAccountResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
+// 修改企业用户
+func UpdateEnterpriseUser(req *Config.UpdateEnterpriseAccountRequest) (*Config.UpdateEnterpriseAccountResponse, error) {
+	log.Println("修改企业账号--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "v2/user/modifyCompanyInfo"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.UpdateEnterpriseAccountResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}

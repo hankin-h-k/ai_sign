@@ -92,3 +92,77 @@ type DeletePersonalAccountResponse struct {
 	BaseResponse
 	Data string `json:"data,omitempty"`
 }
+
+// 创建企业账号json信息配置
+type CreateEnterpriseAccountRequest struct {
+	Account         string `json:"account,omitempty"`
+	SerialNo        string `json:"serialNo,omitempty"`
+	CompanyName     string `json:"companyName,omitempty"`
+	CreditCode      string `json:"creditCode,omitempty"`
+	CreditType      int    `json:"creditType,omitempty"`
+	Name            string `json:"name,omitempty"`
+	IdCard          string `json:"idCard,omitempty"`
+	IdCardType      int    `json:"idCardType,omitempty"`
+	Mobile          string `json:"mobile,omitempty"`
+	ContactName     string `json:"contactName,omitempty"`
+	ContactIdCard   string `json:"contactIdCard,omitempty"`
+	SignPwd         string `json:"signPwd,omitempty"`
+	IsSignPwdNotice int    `json:"isSignPwdNotice,omitempty"`
+	IsNotice        int    `json:"isNotice,omitempty"`
+}
+
+// 创建企业账号响应数据
+type CreateEnterpriseAccountData struct {
+	SealNo string `json:"sealNo,omitempty"`
+}
+
+// 创建企业账号响应
+type CreateEnterpriseAccountResponse struct {
+	BaseResponse
+	Data CreateEnterpriseAccountData `json:"data,omitempty"`
+}
+
+// 查询企业用户请求参数
+type QueryEnterpriseAccountRequest struct {
+	Account     string `json:"account,omitempty"`
+	CreditCode  string `json:"creditCode,omitempty"`
+	CompanyName string `json:"companyName,omitempty"`
+}
+
+type QueryEnterpriseAccountData struct {
+	Account      string `json:"account,omitempty"`
+	Name         string `json:"name,omitempty"`
+	CompanyName  string `json:"companyName,omitempty"`
+	IdCard       string `json:"idCard,omitempty"`
+	UserType     int    `json:"userType,omitempty"`
+	Status       int    `json:"status,omitempty"`
+	CreditCode   string `json:"creditCode,omitempty"`
+	BackCard     string `json:"backCard,omitempty"`
+	PortVersion  int    `json:"portVersion,omitempty"`
+	IdentifyType int    `json:"identifyType,omitempty"`
+	AuthType     int    `json:"authType,omitempty"`
+	CreateTime   string `json:"createTime,omitempty"`
+	IdentifyTime string `json:"identifyTime,omitempty"`
+	SerialNo     string `json:"serialNo,omitempty"`
+}
+
+// 查询企业用户响应
+type QueryEnterpriseAccountResponse struct {
+	BaseResponse
+	Data []QueryEnterpriseAccountData `json:"data,omitempty"`
+}
+
+// 修改企业用户请求
+type UpdateEnterpriseAccountRequest struct {
+	Account     string `json:"account,omitempty"`
+	CompanyName string `json:"companyName,omitempty"`
+	Name        string `json:"name,omitempty"`
+	IdCard      string `json:"idCard,omitempty"`
+	IdCardType  int    `json:"idCardType,omitempty"`
+}
+
+// 修改企业用户响应
+type UpdateEnterpriseAccountResponse struct {
+	BaseResponse
+	Data string `json:"data,omitempty"`
+}

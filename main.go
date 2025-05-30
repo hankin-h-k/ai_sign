@@ -23,6 +23,34 @@ func main() {
 	)
 	Service.InitService(host, appId, privateKey)
 
+	// req := Config.CreateEnterpriseAccountRequest{}
+	// req.Account = "comp_1"
+	// req.CompanyName = "友福同享（深圳）智能科技有限公司"
+	// req.CreditCode = "91440300MA5H5FP09X"
+	// req.CreditType = 1
+	// req.Name = "Hankin"
+	// req.IdCard = "511112200107212811"
+	// req.IdCardType = 1
+	// req.Mobile = "15872844805"
+	// res, err := Service.AddEnterpriseUser(&req)
+
+	// req := Config.QueryEnterpriseAccountRequest{}
+	// req.Account = "comp_1"
+	// res, err := Service.QueryEnterpriseUser(&req)
+
+	// req := Config.UpdateEnterpriseAccountRequest{}
+	// req.Account = "comp_1"
+	// req.CompanyName = "友福同享（深圳）智能科技有限公司"
+
+	// res, err := Service.UpdateEnterpriseUser(&req)
+	// if err != nil {
+	// 	log.Println(err.Error())
+	// }
+	// if res.Code != 100000 {
+	// 	log.Println(res.Msg)
+	// } else {
+	// 	log.Println(res.Data)
+	// }
 	// createFile()
 
 	// personalAccount := Config.CreatePersonalAccountRequest{}
