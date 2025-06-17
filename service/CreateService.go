@@ -2,7 +2,6 @@ package service
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 
 	Config "github.com/hankin-h-k/ai_sign/config"
@@ -94,7 +93,7 @@ func AddSigner(req []*Config.AddSignerRequest) (*Config.AddSignerResponse, error
 		return nil, err
 
 	}
-	fmt.Println(string(response))
+	// fmt.Println(string(response))
 	var resp Config.AddSignerResponse
 	json.Unmarshal(response, &resp)
 	return &resp, nil
