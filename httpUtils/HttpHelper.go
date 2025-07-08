@@ -139,7 +139,7 @@ func SendRequest(urlStr, jsonStr string, fileConfig *Config.FileConfig) ([]byte,
 		log.Println("读取响应失败:", err)
 		return nil, err
 	}
-	log.Println("调用结果:", string(respBody))
+	// log.Println("调用结果:", string(respBody))
 	return respBody, nil
 }
 
