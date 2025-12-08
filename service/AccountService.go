@@ -147,13 +147,67 @@ func UpdateEnterpriseUser(req *Config.UpdateEnterpriseAccountRequest) (*Config.U
 	if data, err := json.Marshal(req); err == nil {
 		dataJson = string(data)
 	}
-	apiUrl := "v2/user/modifyCompanyInfo"
+	apiUrl := "user/modifyCompanyInfo"
 	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
 	if err != nil {
 		return nil, err
 
 	}
 	var resp Config.UpdateEnterpriseAccountResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
+// MARK 修改手机号
+func UpdateMobile(req *Config.UpdateMobileRequest) (*Config.UpdateMobileResponse, error) {
+	log.Println("修改手机号--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "user/updateMobile"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.UpdateMobileResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
+// MARK 修改手机号（验证码方式）
+func ModifyMobileByCode(req *Config.ModifyMobileByCodeRequest) (*Config.ModifyMobileByCodeRsponse, error) {
+	log.Println("修改手机号（验证码方式）--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "user/modifyMobileByCode"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.ModifyMobileByCodeRsponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
+// MARK 修改手机号（运营商三要素校验）
+func ModifyMobile(req *Config.ModifyMobileRequest) (*Config.ModifyMobileResponse, error) {
+	log.Println("修改手机号（运营商三要素校验）--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "user/modifyMobile"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.ModifyMobileResponse
 	json.Unmarshal(response, &resp)
 	return &resp, nil
 }

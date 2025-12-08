@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/hankin-h-k/ai_sign/config"
 	Config "github.com/hankin-h-k/ai_sign/config"
 	Service "github.com/hankin-h-k/ai_sign/service"
 	Utils "github.com/hankin-h-k/ai_sign/utils"
@@ -237,6 +238,28 @@ func main() {
 	// req.ValidityDate = "2025-12-30"
 	// Service.DelayContract(&req)
 
+	// getAuthPersonIdentifyUrl()
+
+	// 修改手机号
+	// updateMobile("local_1", "15872844800")
+}
+
+func updateMobile(account, mobile string) {
+	var req = config.UpdateMobileRequest{
+		Mobile:  mobile,
+		Account: account,
+	}
+
+	resp, err := Service.UpdateMobile(&req)
+	if err != nil {
+		panic(err)
+	}
+
+	resp2, _ := Service.QueryPersonalUser(&config.QueryPersonalAccountRequest{
+		Account: account,
+	})
+	fmt.Println(resp)
+	fmt.Println(resp2)
 }
 
 func createFile() {
@@ -371,4 +394,38 @@ func readFile(file string) string {
 
 	res := base64.StdEncoding.EncodeToString(srcByte)
 	return res
+}
+
+func getAuthPersonIdentifyUrl() {
+	var (
+		req config.PersonIdentifyUrlRequest
+	)
+	resp, _ := Service.GetAuthPersonIdentifyUrl(&req)
+
+	fmt.Println(*resp)
+}
+
+func getAuthRecordInfo() {
+	var (
+		req config.AuthRecordInfoRequest
+	)
+	req.SerialNo = "12313"
+	resp, _ := Service.GetAuthRecordInfo(&req)
+
+	fmt.Println(*resp)
+
+}
+
+func getPersonUser() error {
+	var (
+		req Config.QueryPersonalAccountRequest
+	)
+	req.Account = "production_3740"
+	resp, err := Service.QueryPersonalUser(&req)
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(*resp)
+	return err
 }

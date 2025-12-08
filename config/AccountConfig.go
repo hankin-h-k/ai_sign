@@ -166,3 +166,40 @@ type UpdateEnterpriseAccountResponse struct {
 	BaseResponse
 	Data string `json:"data,omitempty"`
 }
+
+// MARK: 修改手机号请求
+type UpdateMobileRequest struct {
+	Account string `json:"account,omitempty"`
+	Mobile  string `json:"mobile,omitempty"`
+}
+
+// MARK: 修改手机号响应
+type UpdateMobileResponse struct {
+	BaseResponse
+}
+
+// MARK: 修改手机号请求（验证码方式）
+type ModifyMobileByCodeRequest struct {
+	Account string `json:"account,omitempty"`
+	Mobile  string `json:"mobile,omitempty"`
+	Code    string `json:"code,omitempty"`
+	Ctoken  string `json:"ctoken,omitempty"`
+}
+
+// MARK: 修改手机号响应（验证码方式）
+type ModifyMobileByCodeRsponse struct {
+	BaseResponse
+}
+
+// MARK: 修改手机号请求（运营商三要素校验）
+type ModifyMobileRequest struct {
+	Account string `json:"account,omitempty"`
+	Name    string `json:"name,omitempty"`
+	IdCard  string `json:"idCard,omitempty"`
+	Mobile  string `json:"mobile,omitempty"`
+}
+
+// MARK: 修改手机号响应（运营商三要素校验）
+type ModifyMobileResponse struct {
+	BaseResponse
+}
