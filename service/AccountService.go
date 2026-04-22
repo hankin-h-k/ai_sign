@@ -211,3 +211,21 @@ func ModifyMobile(req *Config.ModifyMobileRequest) (*Config.ModifyMobileResponse
 	json.Unmarshal(response, &resp)
 	return &resp, nil
 }
+
+// MARK 重置签约密码
+func ResetSignPwd(req *Config.ResetSignPwdRequest) (*Config.ResetSignPwdResponse, error) {
+	log.Println("重置签约密码--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "user/resetSignPwd"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.ResetSignPwdResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}

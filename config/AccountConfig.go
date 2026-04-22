@@ -203,3 +203,14 @@ type ModifyMobileRequest struct {
 type ModifyMobileResponse struct {
 	BaseResponse
 }
+
+// MARK: 重置签约密码请求
+type ResetSignPwdRequest struct {
+	Account string `json:"account"`
+	SignPwd string `json:"signPwd"`
+}
+
+// MARK: 重置签约密码响应
+type ResetSignPwdResponse struct {
+	BaseResponse
+}
