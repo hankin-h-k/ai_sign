@@ -158,6 +158,23 @@ func UpdateEnterpriseUser(req *Config.UpdateEnterpriseAccountRequest) (*Config.U
 	return &resp, nil
 }
 
+func SendCode(req *Config.SendCodeRequest) (*Config.SendCodeResponse, error) {
+	log.Println("发送验证码--------")
+	var dataJson string
+	if data, err := json.Marshal(req); err == nil {
+		dataJson = string(data)
+	}
+	apiUrl := "user/sendCode"
+	response, err := httpUtils.SendRequest(apiUrl, dataJson, nil)
+	if err != nil {
+		return nil, err
+
+	}
+	var resp Config.SendCodeResponse
+	json.Unmarshal(response, &resp)
+	return &resp, nil
+}
+
 // MARK 修改手机号
 func UpdateMobile(req *Config.UpdateMobileRequest) (*Config.UpdateMobileResponse, error) {
 	log.Println("修改手机号--------")

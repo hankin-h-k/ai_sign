@@ -214,3 +214,18 @@ type ResetSignPwdRequest struct {
 type ResetSignPwdResponse struct {
 	BaseResponse
 }
+
+// MARK: 发送验证码请求
+type SendCodeRequest struct {
+	Account string `json:"account"`
+}
+
+type SendCodeData struct {
+	CodeToken string `json:"codeToken"`
+}
+
+// MARK: 发送验证码响应
+type SendCodeResponse struct {
+	BaseResponse
+	Data SendCodeData `json:"data,omitempty"`
+}
