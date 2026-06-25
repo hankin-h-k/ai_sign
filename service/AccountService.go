@@ -2,6 +2,7 @@ package service
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 
 	Config "github.com/hankin-h-k/ai_sign/config"
@@ -135,6 +136,8 @@ func QueryEnterpriseUser(req *Config.QueryEnterpriseAccountRequest) (*Config.Que
 		return nil, err
 
 	}
+
+	fmt.Println("resp: " + string(response))
 	var resp Config.QueryEnterpriseAccountResponse
 	json.Unmarshal(response, &resp)
 	return &resp, nil
